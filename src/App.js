@@ -11,9 +11,9 @@ function App() {
   return (
     <Routes>
       <Route path = "/" element = {<Home></Home>}></Route>
-      <Route path = "/indentory" element = {<Inventory></Inventory>}></Route>
+      <Route path = "/inventory" element = {<Inventory></Inventory>}></Route>
       <Route path = "/manageItem" element = {<ManageItem></ManageItem>}></Route>
-      <Route path = "/myItem" element = {<MyItem></MyItem>}></Route>
+      <Route path = "/myItems" element = {<MyItem></MyItem>}></Route>
       <Route path = "/logIn" element = {<LogIn></LogIn>}></Route> 
     </Routes>
   );
