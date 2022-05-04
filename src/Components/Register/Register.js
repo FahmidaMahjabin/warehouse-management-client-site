@@ -1,14 +1,14 @@
 import React from 'react';
-import "./LogIn.css";
+
 import auth from '../../init';
 import { useLocation, useNavigate } from 'react-router-dom';
 import useToSignInWithThirdParty from '../../Hooks/UseToSignIn';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-const Login = () => {
+const Register = () => {
     // console.log("auth:",auth);
     const navigate = useNavigate();
-    const gotoRegisterpage = () =>{
-        navigate("/register")
+    const gotoLogInPage = () =>{
+        navigate("/logIn")
 
     }
     const location = useLocation();
@@ -32,16 +32,16 @@ const Login = () => {
     const {createUserUsingGoogle, createuserUsingFacebook} = useToSignInWithThirdParty();
     return (
         <div className="formContainer my-5 text-center">
-            <h1>log in page</h1>
+            <h1>Register in page</h1>
             <form onSubmit={getToLogIn}>
                 <input type="email" name = "email" placeholder='enter email'></input>
 
                 <input type="password" name = "password" placeholder='enter password'></input>
-                <p>New in My Currency World? <button onClick={gotoRegisterpage} className='btn btn-link'>Go to Register</button></p>
-                <button className='btn btn-success d-block w-75 mx-auto' type="submit">Log In</button>
+                <p>Already have an account? <button onClick={gotoLogInPage} className='btn btn-link'>Go to LogIn</button></p>
+                <button className='btn btn-success d-block w-75 mx-auto' type="submit">Register</button>
             </form>
             <hr></hr>
-            <h3>Log In using third party</h3>
+            <h3>Register using third party</h3>
             <div>
                 <button className='btn d-block w-75 bg-success my-2 mx-auto' onClick={createUserUsingGoogle}  type="button" >
                     <div className= "d-flex align-items-center ">
@@ -61,4 +61,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Register;
