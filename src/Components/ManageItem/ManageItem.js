@@ -10,6 +10,19 @@ const ManageItem = () => {
         axios.get(`http://localhost:5000/inventory/${id}`)
             .then(data => setItem(data.data))
     }, [])
+    const deliverItem = ()=>{
+        console.log("devivered called");
+        if (quantity >1){
+            axios.put(`http://localhost:5000/inventory/${id}`, 
+            {
+                body:{quantity: `${quantity-1}`}
+            })
+            .then()
+        }
+        else{
+            alert("quantity can't be negative")
+        }    
+    }
     const { name, picture, quantity, about, balance, supplier } = item;
     return (
         <Card className = "text-center mx-auto my-5" style = {{width:"500px"}}>
@@ -22,7 +35,7 @@ const ManageItem = () => {
                     <h5>Supplier:{supplier}</h5>
                     <p>Description:{about}</p>
                 </Card.Text>
-                <Button variant="primary">Delivered</Button>
+                <Button variant="primary" onClick = {deliverItem} >Delivered</Button>
             </Card.Body>
         </Card>
     );

@@ -7,18 +7,23 @@ import Inventory from '../Inventory/Inventory';
 
 const Home = () => {
     const [items, setItems] = useState([]);
-    useEffect(() =>{axios.get("http://localhost:5000/inventory")
-    .then(data => setItems(data.data));
-    console.log(items.data)}, [])
+    useEffect(
+        () =>{axios.get("http://localhost:5000/inventory")
+    .then(data =>{
+        // console.log("items:", data.data)
+        setItems(data.data);
+        }
+        )
+        }, [])
 
-    
+    console.log("items:", items)
     return (
         <div>
-            <h1>It's Home</h1>
+            
             <GetNavbar></GetNavbar>
             <Banner></Banner>
             <div className = "row m-5">
-                {items.map(item => <Inventory key = {item._id} item = {item}></Inventory>)}
+                {items?.map((item) => {return <Inventory  item = {item}></Inventory>})}
             </div>
 
         </div>

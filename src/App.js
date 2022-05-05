@@ -14,7 +14,7 @@ function App() {
       <Route path = "/" element = {<Home></Home>}></Route>
       <Route path = "/inventory" element = {<Inventory></Inventory>}></Route>
       <Route path = "/inventory/:id" element = {<ManageItem></ManageItem>}></Route>
-      <Route path = "/manageItem" element = {<ManageItem></ManageItem>}></Route>
+      {/* <Route path = "/manageItem" element = {<ManageItem></ManageItem>}></Route> */}
       <Route path = "/myItems" element = {<MyItem></MyItem>}></Route>
       <Route path = "/logIn" element = {<LogIn></LogIn>}></Route>
       <Route path = "/register" element = {<Register></Register>}></Route>  
