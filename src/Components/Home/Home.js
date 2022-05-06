@@ -7,18 +7,32 @@ import Inventory from '../Inventory/Inventory';
 
 const Home = () => {
     const [items, setItems] = useState([]);
-    useEffect(() =>{axios.get("http://localhost:5000/inventory")
-    .then(data => setItems(data.data));
-    console.log(items.data)}, [])
+    useEffect(() =>
+    {
+        axios.get("http://localhost:5000/inventory")
+        .then(data =>{
+            console.log("data:", data)
 
-    
+             setItems(data.data);
+            
+        })
+    },
+    [])
+
+    console.log("items", items)
+    const inventoryList = [];
+    for(let item of items){
+        console.log("current item:", item);
+        inventoryList.push(<Inventory  item = {item}></Inventory>)
+    }
     return (
         <div>
             <h1>It's Home</h1>
             <GetNavbar></GetNavbar>
             <Banner></Banner>
             <div className = "row m-5">
-                {items.map(item => <Inventory key = {item._id} item = {item}></Inventory>)}
+                {/* {items?.map(item => <Inventory  item = {item}></Inventory>)} */}
+                {inventoryList}
             </div>
 
         </div>
